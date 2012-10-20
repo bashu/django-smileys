@@ -17,7 +17,7 @@ setup(
     package_dir={'smileys': 'smileys'},
     include_package_data=True,
     packages=find_packages(),
-    requires=['easy-thumbnails'],
+    requires=('easy-thumbnails',),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
