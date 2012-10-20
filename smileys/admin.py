@@ -5,8 +5,9 @@ from easy_thumbnails.files import get_thumbnailer
 
 class SmileyAdmin(admin.ModelAdmin):
     list_select_related = True
-    list_display = ['id', 'pattern', 'description', 'get_icon_link', 'image', 'is_regex', 'is_active']
+    list_display = ['id', 'pattern', 'description', 'get_icon_link', 'image', 'is_regex', 'is_active', 'tags']
     list_filter = ['is_active', 'is_regex']
+    list_editable = ['tags']
     readonly_fields = []
     search_fields = ['description', 'tags']
     #---------------------------------- Récupérer un markup de l'image avec lien
