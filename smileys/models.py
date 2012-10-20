@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+import os
 
 class SmileyManager(models.Manager):
     def active(self):
@@ -13,6 +14,21 @@ class Smiley(models.Model):
     is_regex = models.BooleanField(blank=True, verbose_name=_("Is a regex"))
     is_active = models.BooleanField(default=True, blank=True, verbose_name=_("Active"))
     tags = models.CharField(max_length=64, blank=True, verbose_name=_("Tags"))
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            try:
+                os.remove(self.image.name)
+            except:
+                pass
+        super(Smiley, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        try:
+            os.remove(self.image.name)
+        except:
+            pass
+        super(Smiley, self).delete(*args, **kwargs)
 
     def __unicode__(self):
         return self.description or self.pattern
