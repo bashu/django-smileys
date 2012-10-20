@@ -76,6 +76,10 @@ First of all, you must add this project to your list of ``INSTALLED_APPS`` in
         ...
     )
 
+You can also define a path to upload smileys, instead of the default one.
+
+    SMILEYS_PATH = 'your_path' # defaults to 'smiley' is not set
+
 Run ``manage.py syncdb``.  This creates a the table in your database that is
 necessary for operation.
 
