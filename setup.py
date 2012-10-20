@@ -10,14 +10,13 @@ setup(
     description="Easily add, use and manage smileys on your Django-powered site.",
     long_description=open('README.rst', 'r').read(),
     keywords='django, image, smiley, useless, fun',
-    author='Josh VanderLinden, Artscoop',
+    author='Artscoop',
     author_email='artscoop93@gmail.com',
     url='http://bitbucket.org/artscoop/django-smileys/',
     license='BSD',
     package_dir={'smileys': 'smileys'},
     include_package_data=True,
     packages=find_packages(),
-    requires=('easy_thumbnails',),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
@@ -32,5 +31,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Multimedia :: Graphics'
     ],
-    zip_safe=False
+    zip_safe=False,
+    install_requires=['easy_thumbnails>=1.1',]
 )
