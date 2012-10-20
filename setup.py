@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 import smileys
 
 setup(
-    name='django-smileys',
+    name='django-smileys-plus',
     version=smileys.version(),
     description="Easily add, use and manage smileys on your Django-powered site.",
     long_description=open('README.rst', 'r').read(),
@@ -17,7 +17,7 @@ setup(
     package_dir={'smileys': 'smileys'},
     include_package_data=True,
     packages=find_packages(),
-    requires=('easy-thumbnails',),
+    requires=('easy_thumbnails',),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
