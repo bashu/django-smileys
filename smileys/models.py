@@ -8,12 +8,13 @@ class SmileyManager(models.Manager):
         return self.get_query_set().filter(is_active=True)
 
 class Smiley(models.Model):
-    pattern = models.CharField(max_length=24, verbose_name=_("Pattern"))
+    pattern = models.CharField(max_length=24, blank=False, verbose_name=_("Pattern"))
     description = models.CharField(max_length=128, blank=True, verbose_name=_("Description"))
     image = models.ImageField(upload_to=getattr(settings, 'SMILEYS_PATH', 'smileys'), verbose_name=_("Image"))
     is_regex = models.BooleanField(blank=True, default=False, verbose_name=_("Is a regex"))
     is_active = models.BooleanField(default=True, blank=True, verbose_name=_("Active"))
     tags = models.CharField(max_length=64, blank=True, verbose_name=_("Tags"))
+    objects = SmileyManager()
 
     def save(self, *args, **kwargs):
         if self.image:
